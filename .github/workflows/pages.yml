@@ -1,10 +1,4 @@
 name: Publish docs via GitHub Pages
-
-permissions:
-  contents: read
-  pages: write          # <-- Add this line
-
-
 on:
   push:
     branches:
