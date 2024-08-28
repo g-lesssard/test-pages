@@ -1,0 +1,78 @@
+site_name: PDC Test Platfrorm
+site_url: https://g-lesssard.github.io/PDC-doc/
+repo_url: https://github.com/g-lesssard/
+repo_name: test-pages
+edit_uri: ""
+copyright: Copyright &copy; 2021 - SwarmUS
+
+nav:
+  - Home: "index.md"
+
+theme:
+  name: material
+  custom_dir: 'theme'
+  palette:
+    - scheme: slate
+      primary: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    
+  logo: assets/SVG_S_Swarm_Abeille.svg
+  favicon: assets/SVG_S_Swarm_Abeille.svg
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/swarmus/
+    - icon: fontawesome/brands/github
+      link: https://github.com/SwarmUS
+  disqus: swarmus
+
+extra_css:
+    - css/extra.css
+
+markdown_extensions:
+  - tables
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+        custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - lightgallery
+
+plugins:
+  - search
+  - mermaid2:
+      arguments:
+          # test if its __palette_1 (dark) or __palette_2 (light)
+          theme: |
+            ^(JSON.parse(window.localStorage.getItem(__prefix('__palette'))).index == 1) ? 'light' : 'dark'
+
+extra_javascript:
+- https://polyfill.io/v3/polyfill.min.js?features=es6
+- https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+- https://unpkg.com/mermaid/dist/mermaid.min.js
+- extra/refresh_on_toggle_dark_light.js
